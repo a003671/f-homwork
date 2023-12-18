@@ -20,7 +20,7 @@ class StockSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Stock
-        fields = ['id', 'address', 'positions']
+        fields = ['address', 'positions']
 
     def create(self, validated_data):
         # достаем связанные данные для других таблиц
@@ -30,7 +30,7 @@ class StockSerializer(serializers.ModelSerializer):
         stock = super().create(validated_data)
 
         for position in positions:
-            StockProduct.objects.create(stock=stock, product=position['product'], price=position['price'], quantity=position['quantity'])
+            StockProduct.objects.get_or_create(stock=stock, product=position['product'], price=position['price'], quantity=position['quantity'])
         return stock
     
 
