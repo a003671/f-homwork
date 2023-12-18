@@ -13,4 +13,3 @@ class MeasurementViewSet(ModelViewSet):
     '''ViewSet для измерения.'''
     queryset = Measurement.objects.all()
     serializer_class = MeasurementSerializer
-

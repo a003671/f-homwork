@@ -34,7 +34,7 @@ POST {{baseUrl}}/measurements/
 Content-Type: application/json
 
 {
-  "name": 1,
+  "sensor": 1,
   "temperature": 22.3
 }
 
