@@ -3,7 +3,7 @@ from .views import SensorListCreateView, MeasurementListCreateView, SensorRetrie
 
 
 urlpatterns = [
-    path('sensors/', SensorListCreateView.as_view()),
     path('sensors/<pk>/', SensorRetrieveUpdateAPIView.as_view()),
+    path('sensors/', SensorListCreateView.as_view()),
     path('measurements/', MeasurementListCreateView.as_view()),
 ]
