@@ -13,3 +13,4 @@ class AdvertisementViewSet(ModelViewSet):
         if self.action in ["create", "update", "partial_update"]:
             return [IsAuthenticated()]
         return []
+
