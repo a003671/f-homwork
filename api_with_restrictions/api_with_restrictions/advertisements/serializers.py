@@ -41,6 +41,6 @@ class AdvertisementSerializer(serializers.ModelSerializer):
     def validate(self, data):
         """Метод для валидации. Вызывается при создании и обновлении."""
         num_adv = Advertisement.objects.filter(status='OPEN', creator=self.context["request"].user).count()
-        if self.initial_data.get('status') in ('OPEN', None) and num_adv >= 10:
+        if data.get('status', 'OPEN') == 'OPEN' and num_adv >= 10:
             raise ValidationError(F'У вас исчерпан лимит открытых объявлений: 10')
         return data
